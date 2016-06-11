@@ -41,6 +41,20 @@ let y = 10
 var price = 2.99
 price * 5
 
+
+
+func addOne(number: Int) -> Int {
+    return number + 1
+}
+
+addOne(1)
+addOne(14)
+
+
+
+
+
+
 var view = UIView(
     frame:CGRect(
         origin:CGPoint(x: 0, y:0),
@@ -48,6 +62,80 @@ var view = UIView(
     )
 )
 view.backgroundColor = UIColor.redColor()
+
+
+//
+// Object Oriented Programming (OOP)
+//
+
+// Classes are like blueprints
+class Animal {
+    var food: String
+    
+    init() {
+        food = "unknown"
+    }
+    
+    init(food: String) {
+        self.food = food
+    }
+}
+
+// From classes, you instantiate objects
+var cat = Animal()
+cat.food = "cat food"
+cat.food
+
+var dog = Animal(food: "dog food")
+dog.food
+
+// -------------------------------------------------------
+
+class Venue: CustomStringConvertible {
+    var name: String
+    var location: String
+
+    // functionName(<parameters>) <return type> { <function-body> }
+    init() {
+        name = ""
+        location = "unknown"
+    }
+
+    // an "initializer"
+    // aka "constructors"
+    init(location: String) {
+        name = ""
+        self.location = location
+    }
+    
+    var description: String {
+        get {
+            return name
+        }
+    }
+}
+
+// Inheritance
+// subclass <- super class <- super super class
+// dolphins <- mammals <- animals
+class OutdoorVenue: Venue {
+    var lawnSeating: Bool?
+}
+
+class IndoorVenue: Venue {
+    var capacity: Int?
+}
+
+var mercylounge = IndoorVenue()
+mercylounge.name = "Mercy Lounge"
+mercylounge.capacity = 100
+
+var ascend = OutdoorVenue()
+ascend.name = "Ascend"
+ascend.lawnSeating = true
+
+// Can't do this:
+// ascend = mercylounge
 
 
 
